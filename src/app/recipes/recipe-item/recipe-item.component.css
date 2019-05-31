@@ -1,0 +1,112 @@
+section {
+  /* background: green; */
+}
+
+.section {
+  --_dim: var(--dim, 200px);
+  --_pad: var(--pad, 10px);
+  height: var(--_dim);
+  min-height: min-content;
+  padding: var(--_pad);
+  gap: 5px;
+  --text: calc(var(--wide) - 5px - var(--_dim) - 2 * var(--_pad) - 2 * 2px);
+  display: grid;
+  grid: 1fr / var(--text) var(--_dim);
+  border: 2px solid #eee;
+  background-color: #fff;
+  overflow: hidden;
+  transition: all .5s cubic-bezier(.16, 1.06, .52, 1.01), background-color .3s;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+section:hover > .section {
+  background-color: hsl(2, 100%, 60%);
+  color: #fffc;
+  border-color: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  transition: all .3s cubic-bezier(.16, 1.06, .52, 1.01), background-color .15s;
+  transform: translateX(15px);
+}
+
+* {
+  /* border: 1px solid blue; */
+  transition: transform .3s;
+}
+section:hover > .section * {
+  transition: transform .15s;
+}
+
+.section > .text {
+  align-self: flex-end;
+}
+.text > span {
+  cursor: text;
+}
+
+h1 {
+  position: relative;
+  font-size: 2rem;
+  margin: 0;
+  text-transform: lowercase;
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin-bottom: .5rem;
+  transform-origin: top left;
+  cursor: text;
+  overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+}
+
+section:hover > .section h1::before {
+  transform: scale(5.5);
+  transition: transform .15s;
+}
+
+h1::before {
+  color: rgba(255, 255, 255, .05);
+  content: attr(data-what);
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-transform: lowercase;
+  margin-bottom: .5rem;
+  transform-origin: top left;
+  z-index: -1;
+  pointer-events: none;
+}
+
+section:hover > .section .img {
+  border-color: white;
+  transform: scale(2) translate(25%);
+}
+section:hover > .section img {
+  transform: scale(1.25);
+}
+
+.img,
+img {
+  height: var(--_dim);
+  width: var(--_dim);
+}
+
+img {
+  object-fit: cover;
+  margin: -4px 0 0 -4px;
+}
+
+.img {
+  overflow: hidden;
+  border-radius: 50%;
+  border: 4px double black;
+  align-self: center;
+  z-index: 10;
+  cursor: pointer;
+  box-sizing: border-box;
+}

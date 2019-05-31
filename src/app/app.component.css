@@ -1,0 +1,42 @@
+* {
+  font-family: Ubuntu;
+  /* border: 1px solid green; */
+}
+
+.main {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  gap: 30px;
+  --wide: calc(50vw - 30px/2 - 20px);
+  grid: 1fr / repeat(2, var(--wide));
+  box-sizing: border-box;
+  padding: 20px;
+  padding-top: calc(var(--padTop));
+  width: 100vw;
+}
+
+main {
+  --padTop: 50px;
+  position: relative;
+  margin-bottom: 40px;
+  overflow-y: scroll;
+  --dim: calc(85vh + var(--padTop));
+  height: var(--dim);
+}
+
+main > .box {
+  width: 100%;
+  height: 100%;
+  position: sticky;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  border-bottom: 80px solid #fafafa;
+  pointer-events: none;
+}
+
+h2 {
+  padding-left: 20px;
+}

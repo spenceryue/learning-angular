@@ -1,0 +1,3 @@
+<button (click)='onClick()'>Display Details</button>
+<p [hidden]='hidden'>Hello World</p>
+<p *ngFor="let click of clicks; index as i" [ngStyle]="i >= 5 ? {background: 'blue', color: 'white'} : {}">{{click.toLocaleTimeString()}}</p>

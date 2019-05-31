@@ -1,0 +1,56 @@
+section {
+  --_dim: var(--dim);
+  display: grid;
+  grid: 1fr / 1fr;
+  place-content: center;
+  place-items: center;
+  /* background: blue; */
+  height: calc(var(--_dim) - var(--padTop));
+  position: sticky;
+  top: var(--padTop);
+  margin-bottom: calc(-1 * var(--padTop));
+}
+section > .plate {
+  position: relative;
+  cursor: pointer;
+  border: 5px solid #eee;
+  width: calc(var(--_dim)/2);
+  height: calc(var(--_dim)/2);
+  border-radius: 50%;
+  display: grid;
+  grid: 1fr /1fr;
+  place-items: center;
+  text-align: center;
+  transition: all .15s;
+  text-transform: lowercase;
+  background: white;
+}
+section > .plate:hover {
+  transform: scale(1.2) rotate(-1deg);
+  background: black;
+  color: white;
+  border-color: transparent;
+}
+.card {
+  font-size: 1.5rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 2px solid #eee;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  color: black;
+  transform: translate(-50%, -50%) rotate(10deg);
+  opacity: 1;
+  width: calc(var(--_dim)/3);
+}
+
+button {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+ion-icon {
+  vertical-align: text-bottom;
+}

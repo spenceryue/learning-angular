@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ex3": {
+    "exercises": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,18 +13,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ex3",
+            "outputPath": "dist/exercises",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": [ "src/favicon.ico", "src/assets" ],
+            "styles": [ "src/styles.css" ],
             "scripts": []
           },
           "configurations": {
@@ -57,18 +52,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ex3:build"
+            "browserTarget": "exercises:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ex3:build:production"
+              "browserTarget": "exercises:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ex3:build"
+            "browserTarget": "exercises:build"
           }
         },
         "test": {
@@ -78,42 +73,32 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": [ "src/favicon.ico", "src/assets" ],
+            "styles": [ "src/styles.css" ],
             "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": [ "tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json" ],
+            "exclude": [ "**/node_modules/**" ]
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ex3:serve"
+            "devServerTarget": "exercises:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ex3:serve:production"
+              "devServerTarget": "exercises:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "ex3"
+    }
+  },
+  "defaultProject": "exercises"
 }

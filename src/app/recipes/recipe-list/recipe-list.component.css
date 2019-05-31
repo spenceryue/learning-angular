@@ -1,0 +1,41 @@
+* {
+  /* border: 1px solid red; */
+}
+
+section > * {
+  --dim: 200px;
+}
+
+section {
+  display: grid;
+  gap: 15px;
+}
+
+.new-recipe {
+  --_dim: var(--dim, 200px);
+  --_pad: var(--pad, 10px);
+  cursor: pointer;
+  text-align: center;
+  padding: var(--_pad);
+  border: 2px solid #eee;
+  background-color: #fff;
+  border-radius: 15px;
+  transition: all .5s cubic-bezier(.16, 1.06, .52, 1.01), background-color .3s;
+}
+
+.new-recipe:hover {
+  background-color: hsl(272, 100%, 60%);
+  color: #fffc;
+  border-color: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 30px;
+  transform: translateY(1px) scale(1.1);
+  transform-origin: center left;
+  transition: all .3s cubic-bezier(.16, 1.06, .52, 1.01), background-color .15s;
+}
+
+ion-icon {
+  vertical-align: text-bottom;
+}
