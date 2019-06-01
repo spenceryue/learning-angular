@@ -2,12 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { Ex2Component } from './app.component';
 
 @NgModule({
-  declarations: [ AppComponent ],
+  declarations: [ Ex2Component ],
   imports: [ BrowserModule, FormsModule ],
   providers: [],
-  bootstrap: [ AppComponent ],
+  bootstrap: [ Ex2Component ],
 })
-export class AppModule {}
+export class Ex2Module {}

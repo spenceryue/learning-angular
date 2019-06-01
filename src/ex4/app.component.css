@@ -1,0 +1,31 @@
+section {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px double #0001;
+  background: #fafafa;
+  width: 50vmin;
+  height: 50vmin;
+  display: grid;
+  grid: 1fr / 1fr 1fr;
+  gap: 0px 20px;
+  overflow-y: scroll;
+  align-items: end;
+  /* justify-items: center; */
+}
+
+section > div:first-child {
+  direction: rtl;
+}
+
+* {
+  font-family: Ubuntu Mono;
+}
+
+app-game-control {
+  position: absolute;
+  left: 50%;
+  top: calc(75vmin + 3rem);
+  transform: translate(-50%, -50%);
+}

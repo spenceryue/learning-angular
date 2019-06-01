@@ -1,0 +1,15 @@
+<section>
+  <div>
+    <app-item *ngFor='let count of odd(counts); last as last;' [ngStyle]="getItemStyle(count)"
+      [init]="last && scrollTo">
+      Odd - {{count}}
+    </app-item>
+  </div>
+  <div>
+    <app-item *ngFor='let count of even(counts); last as last;' [ngStyle]="getItemStyle(count)"
+      [init]="last && scrollTo">
+      Even - {{count}}
+    </app-item>
+  </div>
+</section>
+<app-game-control interval='50' (countChange)="update($event)"></app-game-control>

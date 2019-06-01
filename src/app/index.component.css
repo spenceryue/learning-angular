@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  font-family: Ubuntu, system-ui, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(7vh - 4px);
+  font-size: 1.15rem;
+  display: grid;
+  gap: 20px;
+  grid: 1fr / 15vw repeat(5, 10vw);
+  place-content: stretch;
+  place-items: stretch;
+  background: black;
+  padding: 20px;
+  z-index: 100;
+  opacity: .83;
+  box-shadow: 0 0 50px black;
+  color: white;
+  text-transform: uppercase;
+}
+
+nav > :first-child {
+  border-bottom: none;
+  border-right: 1px solid white;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 1.25rem;
+  padding-right: 25px;
+}
+nav > :first-child:hover {
+  background: none;
+  color: white !important;
+  padding-bottom: 4px;
+  border-bottom: none;
+}
+nav > * {
+  border-radius: 0;
+  border-bottom: 1px solid white;
+  padding: 5px;
+  padding-bottom: 4px;
+  text-decoration: none;
+  color: white !important;
+  text-align: center;
+  position: relative;
+}
+nav > :before {
+  content: '';
+  /* background: blue;
+  opacity: .15; */
+  width: 100%;
+  height: 7vh;
+  position: absolute;
+  left: 0;
+  top: -20px;
+  z-index: -1;
+}
+
+nav > :hover {
+  border-radius: .2rem;
+  background: #fffe;
+  color: black !important;
+  padding-bottom: 0px;
+  border-bottom: 5px solid red;
+}
+
+nav > .active {
+  border-color: cyan;
+}
+
+.content {
+  min-height: 93vh;
+}
+
+.placeholder {
+  background: cyan;
+  width: 100vw;
+  height: 7vh;
+}

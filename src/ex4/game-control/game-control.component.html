@@ -1,0 +1,9 @@
+<div>
+  <div class='input-container'>
+    <input type="number" [placeholder]="interval" (keyup)="handleInput($event)" (change)="handleInput($event)" min="1"
+      max="9999">
+    <div class='ms-label'><i class='echo' [ngClass]="getLabelStyles()">{{interval}}</i> ms</div>
+  </div>
+  <button (click)="toggleState()" [ngClass]="getButtonStyles()">{{nextState}}</button>
+  <button (click)="reset()">Reset</button>
+</div>

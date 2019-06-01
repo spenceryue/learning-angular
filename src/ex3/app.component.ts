@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-ex3',
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ],
 })
-export class AppComponent {
+export class Ex3Component {
   hidden = false;
   clicks = [];
   onClick() {

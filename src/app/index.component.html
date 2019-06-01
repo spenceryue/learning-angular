@@ -1,0 +1,14 @@
+<div class='content'>
+  <router-outlet></router-outlet>
+</div>
+<div class="placeholder"></div>
+<nav>
+  <span>links</span>
+  <a routerLink='/' [ngClass]="getHomeStyles()">
+    <ion-icon name="home"></ion-icon>
+  </a>
+  <a routerLink='ex4' routerLinkActive='active'>Ex4</a>
+  <a routerLink='ex3' routerLinkActive='active'>Ex3</a>
+  <a routerLink='ex2' routerLinkActive='active'>Ex2</a>
+  <a routerLink='ex1' routerLinkActive='active'>Ex1</a>
+</nav>
