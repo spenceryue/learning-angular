@@ -1,7 +1,13 @@
 <nav>
-  <div data-what='Recipe Book' class='logo'>Recipe Book</div>
-  <div>Recipes</div>
-  <div>Shopping List</div>
-  <div>Manage <ion-icon name="arrow-dropdown"></ion-icon>
+  <div class='hover-exclusive'>
+    <div data-what='Recipe Book' class='logo'>Recipe Book</div>
+    <div routerLinkActive='active' routerLink='/recipes'>Recipes</div>
+    <div routerLinkActive='active' routerLink='/shopping-list'>Shopping List</div>
   </div>
 </nav>
+<div #dropdownTarget class='manage'>Manage <ion-icon name="arrow-dropdown"></ion-icon>
+  <div appDropdown [target]='dropdownTarget'>
+    <div>Save Data</div>
+    <div>Fetch Data</div>
+  </div>
+</div>

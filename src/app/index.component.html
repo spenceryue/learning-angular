@@ -3,12 +3,13 @@
 </div>
 <div class="placeholder"></div>
 <nav>
-  <span>links</span>
-  <a routerLink='/' [ngClass]="getHomeStyles()">
+  <div>links</div>
+  <div routerLink='/' routerLinkActive='active' [routerLinkActiveOptions]='{exact:true}'>
     <ion-icon name="home"></ion-icon>
-  </a>
-  <a routerLink='ex4' routerLinkActive='active'>Ex4</a>
-  <a routerLink='ex3' routerLinkActive='active'>Ex3</a>
-  <a routerLink='ex2' routerLinkActive='active'>Ex2</a>
-  <a routerLink='ex1' routerLinkActive='active'>Ex1</a>
+  </div>
+  <div routerLink='ex5' routerLinkActive='active'>Ex5</div>
+  <div routerLink='ex4' routerLinkActive='active'>Ex4</div>
+  <div routerLink='ex3' routerLinkActive='active'>Ex3</div>
+  <div routerLink='ex2' routerLinkActive='active'>Ex2</div>
+  <div routerLink='ex1' routerLinkActive='active'>Ex1</div>
 </nav>

@@ -1,56 +1,204 @@
-section {
-  --_dim: var(--dim);
-  display: grid;
-  grid: 1fr / 1fr;
-  place-content: center;
-  place-items: center;
-  /* background: blue; */
-  height: calc(var(--_dim) - var(--padTop));
-  position: sticky;
-  top: var(--padTop);
-  margin-bottom: calc(-1 * var(--padTop));
+* {
+  --dim: 30vw;
+  --fast: .3s;
+  --slow: .6s;
+  line-height: 1.2;
+  box-sizing: border-box;
+  transition: all var(--slow), color var(--fast);
 }
+
+:hover {
+  transition: all var(--fast);
+}
+
+h3 {
+  margin-bottom: .5rem;
+}
+
+.card > h3:first-child {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ul {
+  margin-top: .5rem;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 section > .plate {
-  position: relative;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  /* position: relative; */
+  width: var(--dim);
+  height: var(--dim);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  border: 5px solid #eee;
-  width: calc(var(--_dim)/2);
-  height: calc(var(--_dim)/2);
-  border-radius: 50%;
-  display: grid;
-  grid: 1fr /1fr;
-  place-items: center;
-  text-align: center;
-  transition: all .15s;
   text-transform: lowercase;
+  border-radius: 50%;
+  border: 5px solid #eee;
   background: white;
+  transition: transform var(--fast);
 }
 section > .plate:hover {
-  transform: scale(1.2) rotate(-1deg);
+  transform: translateY(-50%) scale(1.2) rotate(-1deg);
   background: black;
   color: white;
   border-color: transparent;
+  box-shadow: 0px 0px 50px #0006;
+  transition: transform var(--fast);
 }
+
+section > .plate:hover > h1:only-child {
+  transform: translateY(-50%) rotate(-360deg);
+  transition: transform var(--slow);
+}
+
+section > .plate:not(:hover) > h1:only-child {
+  transition: transform 0s, color var(--fast), background-color var(--slow);
+}
+
 .card {
   font-size: 1.5rem;
   position: absolute;
   left: 50%;
-  top: 50%;
-  border: 2px solid #eee;
-  background-color: #fff;
-  border-radius: 15px;
+  top: 45%;
   padding: 20px;
   color: black;
   transform: translate(-50%, -50%) rotate(10deg);
   opacity: 1;
-  width: calc(var(--_dim)/3);
+  border-radius: 15px;
+  border: 2px solid #eee;
+  background-color: #fff;
+  width: calc(var(--dim) * .8);
 }
 
-button {
+.plate:hover > .card {
+  box-shadow: none;
+}
+
+.plate:not(:hover) > .card {
+  box-shadow: 2px 5px 10px #0001;
+}
+
+.card > img {
+  width: 100%;
+  border: 1px solid black;
+  padding: .2rem;
+  border-radius: .2rem;
+  margin-bottom: 1rem;
+}
+
+.card > .description {
+  font-size: 1rem;
+  text-transform: initial;
+}
+
+.card > .ingredients {
+  font-size: 1rem;
+}
+
+.manage {
+  position: relative;
+
   cursor: pointer;
   font-size: 1.2rem;
+  text-transform: lowercase;
+  border: 1px solid #000;
+  border-radius: .2rem;
+  width: fit-content;
+  --manage-height: calc(1.2rem * 1.2 + 2 * .5rem + 2 * 1px);
+  max-height: var(--manage-height);
+  padding: .5rem;
+  transition: all var(--slow), color var(--fast);
+  user-select: none;
+  z-index: 1;
 }
 
-ion-icon {
+.manage:hover {
+  background: black;
+  color: white;
+  border-color: transparent;
+  transform: scale(1.1) rotate(-1deg);
+  transition: all var(--fast);
+  z-index: 100;
+}
+
+.manage.active {
+  background: cyan;
+  color: black;
+  border-color: transparent;
+}
+
+.manage > ion-icon {
   vertical-align: text-bottom;
+}
+
+.appDropdown {
+  display: grid;
+  font-size: .9rem;
+  font-weight: normal;
+  font-style: italic;
+  text-transform: initial;
+  gap: 5px;
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+  opacity: .1;
+  transform: scaleY(0);
+  transition: transform var(--fast) cubic-bezier(.16, 1.06, .52, 1.01);
+  transform-origin: top center;
+  position: absolute;
+  top: calc(100% - .2rem - 1px);
+  width: calc(100% - 2 * .5rem);
+}
+
+.manage:before {
+  content: '';
+  width: 100%;
+  border: 1px solid cyan;
+  border-radius: .2rem;
+  height: calc(var(--manage-height) + (.9rem * 1.2 + 2.5px * 2) * 3 + 5px * (2 + 2) + .5rem);
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  background: cyan;
+  z-index: -1;
+  transform: scaleY(0);
+  opacity: .1;
+  transition: transform var(--fast) cubic-bezier(.16, 1.06, .52, 1.01);
+  transform-origin: top center;
+  box-shadow: 5px 5px 5px #0001;
+}
+
+.manage.active:before {
+  opacity: 1;
+  transform: scaleY(1);
+  transition: transform calc(.5 * var(--fast));
+}
+
+.appDropdown > div {
+  padding: 2.5px;
+  transition: none;
+}
+
+.appDropdown > div:hover {
+  background: #0001;
+  transition: none;
+}
+
+.appDropdown.open {
+  opacity: 1;
+  transform: scaleY(1);
+  transition: transform calc(.5 * var(--fast));
 }

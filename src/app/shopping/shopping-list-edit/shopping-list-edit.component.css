@@ -1,0 +1,58 @@
+* {
+  --fast: .3s;
+  --slow: .6s;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  box-sizing: border-box;
+  /* transition: all var(--slow), color var(--fast); */
+}
+
+:hover {
+  /* transition: all var(--fast); */
+}
+
+form {
+  display: grid;
+  grid: 1fr / repeat(3, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  align-content: stretch;
+  justify-content: start;
+
+  margin: 0 20px 0 20px;
+  text-transform: lowercase;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.buttons {
+  width: fit-content;
+  display: grid;
+  grid: 1fr / repeat(3, auto);
+  gap: 10px;
+}
+
+.buttons > * {
+  width: max-content;
+  border-radius: .2rem;
+  border: 1px solid #0001;
+  padding: .5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.buttons > :hover {
+  background: black;
+  color: white;
+}
+
+.buttons > :active {
+  background: cyan;
+  color: black;
+}
+
+ion-icon {
+  width: 1.8ex;
+  font-size: 1.8rem;
+  vertical-align: text-bottom;
+}

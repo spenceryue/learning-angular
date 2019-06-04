@@ -1,7 +1,6 @@
 <section>
-  <app-recipe-item *ngFor="let item of items" title="{{item.title}}" description="{{item.description}}"
-    image="{{item.image}}">
+  <app-recipe-item *ngFor="let recipe of recipes; index as idx" [idx]='idx' [recipe]='recipe'>
   </app-recipe-item>
-  <div class='new-recipe'>New Recipe <ion-icon name="add-circle"></ion-icon>
+  <div class='new-recipe' routerLink='new'>New Recipe <ion-icon name="add-circle"></ion-icon>
   </div>
 </section>

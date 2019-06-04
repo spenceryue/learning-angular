@@ -1,0 +1,23 @@
+* {
+  font-family: Ubuntu;
+  box-sizing: border-box;
+}
+
+main {
+  position: relative;
+  display: grid;
+  grid: 1fr/ repeat(2, 1fr);
+  gap: 5vw;
+  margin: 5vw;
+}
+
+/* Light gray background at bottom */
+main:before {
+  content: '';
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  border-bottom: 30vh solid #fafafa;
+}

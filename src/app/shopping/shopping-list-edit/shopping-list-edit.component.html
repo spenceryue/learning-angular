@@ -1,0 +1,18 @@
+<form class='item'>
+  <input id="name" type="text" placeholder="name" #nameRef>
+  <input id="amount" type="number" min="1" placeholder="amount" #amountRef>
+  <div class='buttons'>
+    <div (click)="add(nameRef.value, amountRef.value)">
+      Add
+      <ion-icon name="checkmark-circle"></ion-icon>
+    </div>
+    <div (click)='remove()'>
+      Delete
+      <ion-icon name="close-circle"></ion-icon>
+    </div>
+    <div (click)='clear()'>
+      Clear
+      <ion-icon name="refresh-circle"></ion-icon>
+    </div>
+  </div>
+</form>

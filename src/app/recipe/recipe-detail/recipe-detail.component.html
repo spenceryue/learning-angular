@@ -1,14 +1,26 @@
 <section>
   <div class='plate'>
-    <h1>Pick a recipe to get started.</h1>
-    <div class='card'>
-      <h1>{{name}}</h1>
-      <button>Manage Recipe <ion-icon name="arrow-dropdown"></ion-icon></button>
-      <div>
-        <h3>Description</h3>
+    <h1 *ngIf='!recipe'>Pick a recipe to get started.</h1>
+    <div *ngIf='recipe' class='card'>
+      <h3>{{recipe.title}}</h3>
+      <img src={{recipe.image}}>
+      <div class='manage' #dropdownTarget>Manage Recipe <ion-icon name="arrow-dropdown"></ion-icon>
+        <div appDropdown [target]='dropdownTarget'>
+          <div (click)='addToShoppingList()'>To Shopping List</div>
+          <div routerLink='edit'>Edit Recipe</div>
+          <div>Delete Recipe</div>
+        </div>
       </div>
-      <div>
+      <div class='description'>
+        <h3>Description</h3>
+        {{recipe.description}}
+      </div>
+      <div class='ingredients'>
         <h3>Ingredients</h3>
+        <ul>
+          <li *ngFor='let ingredient of recipe.ingredients'>{{ingredient.name}} (x{{ingredient.amount}})
+          </li>
+        </ul>
       </div>
     </div>
   </div>

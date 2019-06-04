@@ -1,0 +1,6 @@
+<section>
+  <div *ngFor="let item of items; index as i" class='item' (click)='toggleSelect(i)'
+    [ngClass]="{selected: isCurrentlySelected(i)}">
+    {{item.name}} ({{item.amount}})
+  </div>
+</section>

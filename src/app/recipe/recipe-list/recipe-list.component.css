@@ -1,22 +1,20 @@
-* {
-  /* border: 1px solid red; */
-}
-
-section > * {
-  --dim: 200px;
-}
-
 section {
   display: grid;
-  gap: 15px;
+  gap: 2.5vh;
+  box-sizing: border-box;
+  max-width: 45vw;
+  /* background: #00ff0088; */
+}
+
+a {
+  text-decoration: unset;
+  color: unset;
 }
 
 .new-recipe {
-  --_dim: var(--dim, 200px);
-  --_pad: var(--pad, 10px);
   cursor: pointer;
   text-align: center;
-  padding: var(--_pad);
+  padding: 11px;
   border: 2px solid #eee;
   background-color: #fff;
   border-radius: 15px;
@@ -36,6 +34,6 @@ section {
   transition: all .3s cubic-bezier(.16, 1.06, .52, 1.01), background-color .15s;
 }
 
-ion-icon {
+.new-recipe > ion-icon {
   vertical-align: text-bottom;
 }

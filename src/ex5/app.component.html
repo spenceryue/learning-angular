@@ -1,0 +1,12 @@
+<h1>Active Users</h1>
+<div *ngFor="let name of active; index as i;">
+    {{name}} | <span class='clickable' (click)="makeInactive(i)">Set to
+        Inactive</span>
+</div>
+<h1>Inactive Users</h1>
+<div *ngFor="let name of inactive; index as i;">
+    {{name}} | <span class='clickable' (click)="makeActive(i)">Set
+        to Active</span>
+</div>
+<hr>
+<div>{{count}} Status Changes.</div>

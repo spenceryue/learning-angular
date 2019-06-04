@@ -1,9 +1,7 @@
-<section>
-  <div class='section'>
-    <div class='text'>
-      <h1 [attr.data-what]="title">{{title}}</h1>
-      <span>{{description}}</span>
-    </div>
-    <div class='img'><img [src]="image"></div>
+<section [routerLink]='idx' routerLinkActive='active'>
+  <div class='text'>
+    <h1 [attr.data-what]="recipe.title">{{recipe.title}}</h1>
+    <span>{{recipe.description}}</span>
   </div>
+  <div class='img'><img [src]="recipe.image"></div>
 </section>

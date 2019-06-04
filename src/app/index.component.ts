@@ -5,8 +5,4 @@ import { Component } from '@angular/core';
   styleUrls: [ './index.component.css' ],
   templateUrl: './index.component.html',
 })
-export class IndexComponent {
-  getHomeStyles() {
-    return { active: location.href.endsWith('/') };
-  }
-}
+export class IndexComponent {}

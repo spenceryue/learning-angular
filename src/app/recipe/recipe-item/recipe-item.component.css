@@ -1,57 +1,64 @@
-section {
-  /* background: green; */
-}
-
-.section {
-  --_dim: var(--dim, 200px);
-  --_pad: var(--pad, 10px);
-  height: var(--_dim);
-  min-height: min-content;
-  padding: var(--_pad);
-  gap: 5px;
-  --text: calc(var(--wide) - 5px - var(--_dim) - 2 * var(--_pad) - 2 * 2px);
-  display: grid;
-  grid: 1fr / var(--text) var(--_dim);
-  border: 2px solid #eee;
-  background-color: #fff;
-  overflow: hidden;
-  transition: all .5s cubic-bezier(.16, 1.06, .52, 1.01), background-color .3s;
-  border-radius: 15px;
-  position: relative;
-  cursor: pointer;
+* {
+  --height: 200px;
+  --pad: 11px;
+  --border-radius: 2px;
+  --trim: calc(2 * (var(--pad) + var(--border-radius)));
+  --gap: 5px;
+  --img-size: calc((var(--height) - var(--trim)) *.8);
+  --slow: .6s;
+  --fast: .3s;
+  /* border: 1px solid blue; */
   box-sizing: border-box;
+  transition: transform var(--slow);
+}
+section:hover * {
+  transition: transform var(--fast);
 }
 
-section:hover > .section {
-  background-color: hsl(2, 100%, 60%);
+section {
+  max-width: 45vw;
+  height: var(--height);
+  max-height: var(--height);
+  padding: var(--pad);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #fff;
+  border: var(--border-radius) solid #eee;
+  transition: all .5s cubic-bezier(.16, 1.06, .52, 1.01), background-color var(--slow);
+}
+
+section:hover,
+section.active {
+  background: hsl(2, 100%, 60%);
   color: #fffc;
   border-color: #fff;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  transition: all .3s cubic-bezier(.16, 1.06, .52, 1.01), background-color .15s;
+  border-radius: 30px 50px 40px 20px;
   transform: translateX(15px);
+  transition: all var(--slow) cubic-bezier(.16, 1.06, .52, 1.01), background-color var(--fast);
 }
 
-* {
-  /* border: 1px solid blue; */
-  transition: transform .3s;
-}
-section:hover > .section * {
-  transition: transform .15s;
+section.active {
+  background: cyan;
+  color: black;
 }
 
-.section > .text {
+.text {
   align-self: flex-end;
-}
-.text > span {
   cursor: text;
+  width: calc(50vw - var(--trim) - var(--img-size) - var(--gap));
+  max-width: calc(50vw - var(--trim) - var(--img-size) - var(--gap));
+  height: calc(var(--height) - var(--trim));
+  overflow: hidden;
 }
 
 h1 {
   position: relative;
   font-size: 2rem;
+  color: #0000;
   margin: 0;
   text-transform: lowercase;
   font-weight: normal;
@@ -59,41 +66,58 @@ h1 {
   margin-bottom: .5rem;
   transform-origin: top left;
   cursor: text;
-  overflow: hidden;
-  /* white-space: nowrap; */
-  text-overflow: ellipsis;
+  max-height: calc(2.3rem * 2);
+  line-height: 2.3rem;
 }
 
-section:hover > .section h1::before {
+section:hover h1::before,
+section.active h1::before {
   transform: scale(5.5);
-  transition: transform .15s;
+  transition: transform var(--fast);
 }
 
 h1::before {
-  color: rgba(255, 255, 255, .05);
   content: attr(data-what);
+  cursor: text;
+  max-height: calc(2.3rem * 2);
+  line-height: 2.3rem;
+  transform-origin: top left;
   position: absolute;
   left: 0;
   top: 0;
-  text-transform: lowercase;
-  margin-bottom: .5rem;
-  transform-origin: top left;
-  z-index: -1;
-  pointer-events: none;
+  color: rgb(255, 255, 255, .1);
+  transform: translate(1px, 1px);
+  overflow: hidden;
 }
 
-section:hover > .section .img {
+h1::after {
+  content: attr(data-what);
+  cursor: text;
+  max-height: calc(2.3rem * 2);
+  line-height: 2.3rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: black;
+  overflow: hidden;
+}
+
+section:hover > .img,
+section.active > .img {
   border-color: white;
   transform: scale(2) translate(25%);
 }
-section:hover > .section img {
+section:hover img,
+section.active img {
   transform: scale(1.25);
 }
 
 .img,
 img {
-  height: var(--_dim);
-  width: var(--_dim);
+  height: var(--img-size);
+  width: var(--img-size);
+  min-width: var(--img-size);
+  min-height: var(--img-size);
 }
 
 img {
@@ -103,10 +127,7 @@ img {
 
 .img {
   overflow: hidden;
+  cursor: pointer;
   border-radius: 50%;
   border: 4px double black;
-  align-self: center;
-  z-index: 10;
-  cursor: pointer;
-  box-sizing: border-box;
 }
